@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+    <div class="jumbotron" style="background: url(static/images/globe.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+        <h1 class="display-4">Welcome to Simply!</h1>
+        <p class="lead">Simply is a simple online address book where you can view, edit or delete your contacts, as well as add new ones.</p>
+        <hr class="my-4">
+        <p>If you haven't already, please log in to access your contacts.</p>
+        <a class="btn btn-info btn-lg" href="/github/login" role="button">Log in via GitHub</a>
+    </div>
+
+{% endblock content %}

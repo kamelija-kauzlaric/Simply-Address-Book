@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Contact{% endblock title %}
+
+{% block content %}
+
+{% if github_profile_data %}
+
+    <div class="main" style="text-align: center; margin: 25px;">
+        <h3>Edit contact: {{ contact.contact_first_name }} {{ contact.contact_last_name }}</h3>
+    </div>
+
+    <div class="main" style="justify-content: center; margin: 0 auto; padding: 10px; max-width: 50rem">
+        <form method="post">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="contact_first_name">First name</label>
+                    <input type="text" class="form-control" id="contact_first_name" value="{{ contact.contact_first_name }}" name="contact_first_name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="contact_last_name">Last name</label>
+                    <input type="text" class="form-control" id="contact_last_name" value="{{ contact.contact_last_name }}" name="contact_last_name">
+                </div>
+            </div>
+
+             <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="contact_email">Email</label>
+                    <input type="email" class="form-control" id="contact_email" value="{{ contact.contact_email }}" name="contact_email">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="contact_telephone">Telephone</label>
+                    <input type="text" class="form-control" id="contact_telephone" value="{{ contact.contact_telephone }}" name="contact_telephone">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="contact_address">Address</label>
+                <input type="text" class="form-control" id="contact_address" value="{{ contact.contact_address }}" name="contact_address">
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="contact_city">City/Town</label>
+                    <input type="text" class="form-control" id="contact_city" value="{{ contact.contact_city }}" name="contact_city">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="contact_zipcode">Zipcode</label>
+                    <input type="text" class="form-control" id="contact_zipcode" value="{{ contact.contact_zipcode }}" name="contact_zipcode">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="contact_country">Country</label>
+                    <input type="text" class="form-control" id="contact_country" value="{{ contact.contact_country }}" name="contact_country">
+                </div>
+            </div>
+
+            <div class="btn-group btn-block" style="justify-content: center; margin: 25px auto">
+                <button class="btn btn-info mr-2 rounded" style="max-width: 200px;">Save changes</button>
+                <a href="/contact/{{ contact.id }}" class="btn btn-secondary ml-2 rounded" style="max-width: 200px;">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+{% else %}
+
+    <h3>Oops! Looks like you forgot to log in first!</h3>
+    <p>Click <a href="/github/login">here</a> to log in via GitHub.</p>
+
+{% endif %}
+
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Delete contact{% endblock title %}
+
+{% block content %}
+
+{% if github_profile_data %}
+
+    <div class="main" style="text-align: center; margin: 25px;">
+        <h3>Delete contact details for {{ contact.contact_first_name }} {{ contact.contact_last_name }}</h3>
+    </div>
+
+    <div class="main" style="text-align: center; margin: 25px;">
+        <form method="post">
+            <p>Are you sure you want to delete all contact details for {{ contact.contact_first_name }} {{ contact.contact_last_name }}? This action cannot be undone.</p>
+
+            <div class="btn-group btn-block" style="justify-content: center; margin: 25px auto">
+                <button class="btn btn-danger mr-2 rounded" style="max-width: 200px;">Delete</button>
+                <a href="/contact/{{ contact.id }}" class="btn btn-secondary ml-2 rounded" style="max-width: 200px;">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+{% else %}
+
+    <h3>Oops! Looks like you forgot to log in first!</h3>
+    <p>Click <a href="/github/login">here</a> to log in via GitHub.</p>
+
+{% endif %}
+
+{% endblock content %}

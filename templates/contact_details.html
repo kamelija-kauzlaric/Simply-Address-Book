@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}{{ contact.contact_first_name }} {{ contact.contact_last_name }}{% endblock title %}
+
+{% block content %}
+
+{% if github_profile_data %}
+
+    <div class="main" style="text-align: center; margin: 25px;">
+        <h2>Contact details</h2>
+    </div>
+
+    <div class="row" style="justify-content: center; margin: 0 auto; padding: 10px; max-width: 50rem">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">{{ contact.contact_first_name }} {{ contact.contact_last_name }}</h3>
+                    <p class="card-text"><strong>Email: </strong>{{ contact.contact_email }}</p>
+                    <p class="card-text"><strong>Telephone: </strong>{{ contact.contact_telephone }}</p>
+                    <p class="card-text"><strong>Address: </strong>{{ contact.contact_address }}</p>
+                    <p class="card-text"><strong>City/Town: </strong>{{ contact.contact_city }}</p>
+                    <p class="card-text"><strong>Zipcode: </strong>{{ contact.contact_zipcode }}</p>
+                    <p class="card-text"><strong>Country: </strong>{{ contact.contact_country }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Weather on site</h3>
+                    <img class="weather-icon" src="http://openweathermap.org/img/wn/{{ data.weather[0].icon }}@2x.png" alt="">
+                    <p class="card-text"><strong>Weather on their location: </strong>{{ data.weather[0].description }}</p>
+                    <p class="card-text"><strong>Temperature: </strong>{{ data.main.temp }} &#xb0;C | {{ 9.0/5.0 * data.main.temp + 32 }} &#xb0;F</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-group btn-block" style="justify-content: center; margin: 25px auto">
+        <a href="/contact/edit/{{ contact.id }}" class="btn btn-warning mr-2 rounded" style="max-width: 200px;">Edit contact</a>
+        <a href="/contact/delete/{{ contact.id }}" class="btn btn-danger ml-2 rounded" style="max-width: 200px;">Delete contact</a>
+    </div>
+
+{% else %}
+
+    <h3>Oops! Looks like you forgot to log in first!</h3>
+    <p>Click <a href="/github/login">here</a> to log in via GitHub.</p>
+
+{% endif %}
+
+{% endblock content %}

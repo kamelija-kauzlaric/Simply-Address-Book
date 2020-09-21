@@ -1,0 +1,7 @@
+Flask==1.0.2
+gunicorn==19.9.0
+sqla-wrapper
+psycopg2
+requests_oauthlib
+Flask-Login==0.4.1
+requests

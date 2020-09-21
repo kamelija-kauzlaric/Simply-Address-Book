@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Astronomy Picture of the Day{% endblock title %}
+
+{% block content %}
+
+{% if github_profile_data %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">Enough people for one day?</h1>
+        <p class="lead">Enjoy this beautiful image provided by NASA on a daily basis.</p>
+        <p>Sometimes NASA gives us photos of astronomical phenomena as seen on Earth, so we can't guarantee there are absolutely no humans on the photo you see here, but there is always something to learn. Scroll down for more information on the photo.</p>
+
+        <hr class="my-4">
+        <img src="{{ data.url }}" style="width: 100%">
+
+        <hr class="my-4">
+        <p><strong>Title: </strong>{{ data.title }}</p>
+        <p><strong>Photographer: </strong>{{ data.copyright }}</p>
+        <p><strong>Date: </strong>{{ data.date }}</p>
+        <p><strong>Backstory: </strong>{{ data.explanation }}</p>
+
+        <hr class="my-4">
+        <p>Check out NASA's <a href="https://apod.nasa.gov/apod/archivepix.html">archive</a> for past photos, or come back tomorrow for a new photo.</p>
+    </div>
+
+{% else %}
+
+    <h3>Oops! Looks like you forgot to log in first!</h3>
+    <p>Click <a href="/github/login">here</a> to log in via GitHub.</p>
+
+{% endif %}
+
+{% endblock content %}

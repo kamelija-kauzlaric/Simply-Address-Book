@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Success!{% endblock title %}
+
+{% block content %}
+    <div class="jumbotron" style="background: url(static/images/success.jpg) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
+        <h1 class="display-4">Success!</h1>
+        <p class="lead">Your changes have been stored.</p>
+        <hr class="my-4">
+        <p>Would you like to <a href="/add_contact">add another contact</a> or <a href="/my_contacts">view/edit all contacts?</a></p>
+    </div>
+
+{% endblock content %}

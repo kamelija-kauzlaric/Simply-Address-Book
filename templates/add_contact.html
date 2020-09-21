@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Add Contact{% endblock title %}
+
+{% block content %}
+
+{% if github_profile_data %}
+
+    <div class="main" style="text-align: center; margin: 25px;">
+        <h3>New contact</h3>
+    </div>
+
+    <div class="main" style="justify-content: center; margin: 0 auto;  padding: 10px; max-width: 50rem">
+        <form method="post" action="/store_contact">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="contact_first_name">First name</label>
+                    <input type="text" class="form-control" id="contact_first_name" name="contact_first_name" placeholder="Jane">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="contact_last_name">Last name</label>
+                    <input type="text" class="form-control" id="contact_last_name" name="contact_last_name" placeholder="Doe">
+                </div>
+            </div>
+
+             <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="contact_email">Email</label>
+                    <input type="email" class="form-control" id="contact_email" name="contact_email" placeholder="jane.doe@email.com">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="contact_telephone">Telephone</label>
+                    <input type="text" class="form-control" id="contact_telephone" name="contact_telephone" placeholder="555-1234">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="contact_address">Address</label>
+                <input type="text" class="form-control" id="contact_address" name="contact_address" placeholder="Streety Street Road 99">
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="contact_city">City/Town</label>
+                    <input type="text" class="form-control" id="contact_city" name="contact_city" placeholder="Villagetown City">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="contact_zipcode">Zipcode</label>
+                    <input type="text" class="form-control" id="contact_zipcode" name="contact_zipcode" placeholder="12345">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="contact_country">Country</label>
+                    <input type="text" class="form-control" id="contact_country" name="contact_country" placeholder="Great Countria">
+                </div>
+            </div>
+
+            <div class="btn-group btn-block" style="justify-content: center; margin: 25px auto">
+                <button class="btn btn-info mr-2 rounded" style="max-width: 200px;">Submit</button>
+                <a href="/my_contacts" class="btn btn-secondary ml-2 rounded" style="max-width: 200px;">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+{% else %}
+
+    <h3>Oops! Looks like you forgot to log in first!</h3>
+    <p>Click <a href="/github/login">here</a> to log in via GitHub.</p>
+
+{% endif %}
+
+{% endblock content %}
