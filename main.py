@@ -126,7 +126,7 @@ def contact_details(contact_id):
 # OPENWEATHER.ORG API SETUP
     query = contact.contact_city
     unit = "metric"
-    api_key = os.environ.get["API_KEY_OPENWEATHER"]
+    api_key = "dbcb940d52a454c9fd81b24e526ad182"
 
     url = "https://api.openweathermap.org/data/2.5/weather?q={0}&units={1}&appid={2}".format(query, unit, api_key)
 
@@ -210,7 +210,7 @@ def faraway():
     github = OAuth2Session(os.environ.get("GITHUB_CLIENT_ID"), token=json.loads(request.cookies.get("oauth_token")))
     github_profile_data = github.get("https://api.github.com/user").json()
 
-    api_key = os.environ.get["API_KEY_NASA_APOD"]
+    api_key = "wPdLAzgEMf0BWqdcBFAWGe8na4ZkekwS27hm7PIH"
 
     url = "https://api.nasa.gov/planetary/apod?api_key={0}".format(api_key)
 
