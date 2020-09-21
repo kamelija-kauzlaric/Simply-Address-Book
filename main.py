@@ -1,7 +1,7 @@
 import json
 import os
 import requests
-from secrets import api_key_openweather
+from secrets import *
 
 from flask import Flask, render_template, request, redirect, url_for, make_response
 from models import Contact, db
@@ -127,7 +127,7 @@ def contact_details(contact_id):
 # OPENWEATHER.ORG API SETUP
     query = contact.contact_city
     unit = "metric"
-    api_key = api_key_openweather
+    api_key = os.environ["API_KEY_OPENWEATHER"]
 
     url = "https://api.openweathermap.org/data/2.5/weather?q={0}&units={1}&appid={2}".format(query, unit, api_key)
 
@@ -211,7 +211,7 @@ def faraway():
     github = OAuth2Session(os.environ.get("GITHUB_CLIENT_ID"), token=json.loads(request.cookies.get("oauth_token")))
     github_profile_data = github.get("https://api.github.com/user").json()
 
-    api_key = api_key_nasa_apod
+    api_key = os.environ["API_KEY_NASA_APOD"]
 
     url = "https://api.nasa.gov/planetary/apod?api_key={0}".format(api_key)
 
