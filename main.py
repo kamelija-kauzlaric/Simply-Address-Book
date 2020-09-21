@@ -56,7 +56,7 @@ def logout():
 
 
 # VIEW USER'S CONTACT LIST
-@app.route("/my_contacts", methods=["GET"]) # ako nismo ulogirani, prikazuje INTERNAL SERVER ERROR
+@app.route("/my_contacts", methods=["GET"])
 def my_contacts():
     github = OAuth2Session(os.environ.get("GITHUB_CLIENT_ID"), token=json.loads(request.cookies.get("oauth_token")))
     github_profile_data = github.get("https://api.github.com/user").json()
